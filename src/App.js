@@ -1,20 +1,21 @@
 // menggunakan State karena ini mini app, tidak perlu Context
 import React, {useState} from "react";
 import './main.css'
-import Header from "./Components/Header/Header";
-import SearchBar from "./Components/SearchBar/SearchBar";
-import Result from "./Components/Result/Result";
+import Header from "./Components/Header/Header"
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import Home from "./Components/Pages/Home";
+import Movie from "./Components/Pages/Movie";
 
 const App = () => {
-
-  const [movieList, setMovieList] = useState([])
-
   return (
     <div className="app_container">
-      <Header />
-      <SearchBar setMovieList={setMovieList}/>
-      {/* meneruskan sebagai props */}
-      <Result movieList={movieList}/> 
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/movie/:id" element={<Movie />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
