@@ -1,5 +1,5 @@
 // menggunakan State karena ini mini app, tidak perlu Context
-import React, {useState} from "react";
+import React from "react";
 import './main.css'
 import Header from "./Components/Header/Header"
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
